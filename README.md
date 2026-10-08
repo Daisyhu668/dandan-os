@@ -2,7 +2,7 @@
 
 以 Dandan OS v2 的静态体验为基础进行**渐进式迁移**：React 19 + TanStack Start SSR 路由承载网站；既有的桌面 UI/Dock 暂时由兼容脚本负责，新增留言板和窗口动画为原生 React + Motion 组件，背景使用 PixiJS v8。后端完全通过 Cloudflare Workers（TanStack Start server routes）提供，使用 D1、KV 和 Workers AI。
 
-> **状态说明：代码、图片、部署配置已准备并通过基础静态检查；但当前环境不能从 npm 完整安装依赖，尚未执行 Cloudflare 生产构建、在线交互验收或远端部署。GitHub 仓库已由站点所有者创建为公开仓库；源码上传与云端发布状态以仓库提交和 Cloudflare 控制台为准。发布需在获授权的环境里执行并逐项验证。**
+> **状态说明：代码、图片、部署配置已准备并通过基础静态检查；但当前环境不能从 npm 完整安装依赖，尚未执行 Cloudflare 生产构建、在线交互验收或远端部署。GitHub 公共仓库已上传完整源码和 10 张 WebP 照片；Cloudflare 部署状态仍须以控制台及线上验收为准。发布需在获授权的环境里执行并逐项验证。**
 
 ## 1. 安装和登录
 
@@ -103,6 +103,8 @@ npx wrangler d1 execute dandan-os-db --remote --command "UPDATE guestbook SET st
 
 ## GitHub / Muse 交接
 
-- GitHub 仓库建议为 `Daisyhu668/dandan-os`，为站点所有者已确认的 **Public** 仓库。
-- 发布交接：见 [`MUSE-GITHUB-CLOUDFLARE.md`](MUSE-GITHUB-CLOUDFLARE.md)。
+- GitHub 仓库为 [`Daisyhu668/dandan-os`](https://github.com/Daisyhu668/dandan-os)，已公开并完成代码与照片提交。
+- **Muse 从现有仓库直接 clone 并部署**；不需要重新上传 ZIP 或创建仓库。参见 [`MUSE-DEPLOY.md`](MUSE-DEPLOY.md)。
 - 发布状态：未经云端编译和测试，不能把源代码检查视为上线成功；AI、留言板在正确绑定资源前不可用。
+
+**成本政策：优先 GitHub / Cloudflare 免费套餐；任何升级、订阅或产生实际费用前必须获得网站所有者批准。**
