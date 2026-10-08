@@ -1,0 +1,15 @@
+import fs from 'node:fs'
+import assert from 'node:assert/strict'
+const read=(p)=>fs.readFileSync(p,'utf8')
+const wrangler=JSON.parse(read('wrangler.jsonc'))
+assert.equal(wrangler.name, 'dandan-os')
+assert.equal(wrangler.ai.binding,'AI')
+assert.ok(read('vite.config.ts').includes("tanstackStart()"))
+assert.ok(read('src/components/PixiSky.tsx').includes("import('pixi.js')"))
+assert.ok(read('src/components/Guestbook.tsx').includes("motion/react"))
+assert.ok(read('src/routes/api.chat.ts').includes("/api/chat"))
+assert.ok(read('src/routes/api.guestbook.ts').includes("pending"))
+assert.ok(read('src/legacy/desktop.html').includes('data-open="dog"'))
+assert.ok(!read('src/legacy/desktop.html').includes('13666069043'))
+assert.ok(!read('src/server/public-persona.ts').includes('13666069043'))
+console.log('Static contract checks passed.')

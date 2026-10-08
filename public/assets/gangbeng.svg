@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="钢镚的吉娃娃示意插画，非真实照片">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#d9eee0"/><stop offset="1" stop-color="#a3c6b8"/></linearGradient><linearGradient id="fur" x1="0" x2="1"><stop stop-color="#e8bf83"/><stop offset=".55" stop-color="#c79460"/><stop offset="1" stop-color="#a97549"/></linearGradient><radialGradient id="m" cx=".5" cy=".3" r=".7"><stop stop-color="#f6dbb8"/><stop offset="1" stop-color="#d0a172"/></radialGradient><filter id="sh"><feGaussianBlur stdDeviation="12"/></filter></defs>
+<rect width="500" height="500" fill="url(#bg)"/><circle cx="411" cy="70" r="90" fill="#fff" opacity=".25"/><ellipse cx="246" cy="444" rx="162" ry="26" fill="#628679" opacity=".29" filter="url(#sh)"/>
+<path d="M146 237 Q80 118 100 32 Q178 43 222 146 Q275 123 305 142 Q365 39 419 28 Q432 149 364 236 Q410 297 377 389 Q344 454 243 451 Q135 449 113 378 Q91 308 146 237Z" fill="url(#fur)" stroke="#8e5d38" stroke-width="8" stroke-linejoin="round"/>
+<path d="M160 193 Q132 116 133 79 Q185 117 197 166Z" fill="#cb8d90"/><path d="M321 170 Q360 111 387 77 Q385 150 355 195Z" fill="#cb8d90"/>
+<path d="M153 242 Q118 312 150 388 Q180 435 251 430 Q331 432 358 390 Q380 309 352 250 Q324 288 278 306 Q249 290 209 311 Q171 294 153 242" fill="url(#m)"/>
+<path d="M141 231 Q168 190 213 223 Q230 246 213 275 Q193 292 158 274 Q132 255 141 231Z" fill="#faf0d7" opacity=".9"/>
+<path d="M287 231 Q318 192 355 222 Q371 254 340 277 Q307 289 287 265 Q279 246 287 231Z" fill="#faf0d7" opacity=".9"/>
+<ellipse cx="179" cy="254" rx="22" ry="26" fill="#322c29"/><ellipse cx="318" cy="254" rx="22" ry="26" fill="#322c29"/><circle cx="171" cy="244" r="7" fill="#fff"/><circle cx="310" cy="244" r="7" fill="#fff"/>
+<path d="M212 330 Q246 302 283 328 Q292 346 267 359 Q249 375 235 358 Q201 346 212 330" fill="#322a2a"/><path d="M247 357 Q243 381 223 387 M247 357 Q255 379 276 386" fill="none" stroke="#62463b" stroke-width="6" stroke-linecap="round"/>
+<path d="M171 348 Q132 354 116 340 M169 363 Q128 373 110 369 M315 347 Q360 352 383 337 M321 363 Q363 373 386 370" fill="none" stroke="#ae8060" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+<path d="M168 412 Q243 457 333 408" fill="none" stroke="#f0675c" stroke-width="14" stroke-linecap="round"/><circle cx="249" cy="439" r="20" fill="#e8c450" stroke="#9c7f27" stroke-width="4"/><text x="249" y="447" font-family="sans-serif" font-size="20" text-anchor="middle" fill="#6b5929">G</text>
+</svg>

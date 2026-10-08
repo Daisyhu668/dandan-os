@@ -2,11 +2,24 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "dandan-os",
   "compatibility_date": "2026-10-08",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "main": "@tanstack/react-start/server-entry",
   "workers_dev": true,
-  "observability": {"enabled": true},
-  "ai": {"binding": "AI"},
-  "vars": {"PUBLIC_SITE_NAME": "Dandan OS"},
-  "routes": [{"pattern": "os.coolkiy.qzz.io", "custom_domain": true}]
+  "observability": {
+    "enabled": true
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "vars": {
+    "PUBLIC_SITE_NAME": "Dandan OS"
+  },
+  "routes": [
+    {
+      "pattern": "os.coolkiy.qzz.io",
+      "custom_domain": true
+    }
+  ]
 }
