@@ -1,0 +1,39 @@
+{
+  "name": "dandan-os-cloudflare",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && wrangler deploy",
+    "types:cf": "wrangler types",
+    "db:local": "wrangler d1 migrations apply dandan-os-db --local",
+    "db:remote": "wrangler d1 migrations apply dandan-os-db --remote",
+    "check:static": "node tests/source-check.mjs",
+    "setup:cloudflare": "node scripts/provision.mjs"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "latest",
+    "@tanstack/react-start": "latest",
+    "motion": "^12.0.0",
+    "pixi.js": "^8.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "latest",
+    "@vitejs/plugin-react": "latest",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.8.0",
+    "vite": "latest",
+    "wrangler": "latest",
+    "@cloudflare/workers-types": "latest"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}
