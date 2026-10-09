@@ -13,6 +13,19 @@
   "ai": {
     "binding": "AI"
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "dandan-os-db",
+      "database_id": "89a5be60-5cb5-4fb9-afc1-00877764718a"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "PERSONA",
+      "id": "176664bdea6c4d43b4fa1e96437385be"
+    }
+  ],
   "vars": {
     "PUBLIC_SITE_NAME": "Dandan OS"
   },
