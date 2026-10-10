@@ -58,3 +58,37 @@
 .trip-panel .app-hero{min-height:200px;height:245px}
 .trip-panel .app-hero img{object-position:center 45%}
 .trip-panel[data-trip-panel="rainforest"]{padding:26px 22px;background:#f3f7ee;border:1px solid #dce8d2;border-radius:11px}
+
+
+/* Layout stabilization: prevent floating widgets and app content from covering controls. */
+.hero,.page-section,.section-inner,.project-card,.card-content,.bio-grid,.scrapbook,.life-head{min-width:0}
+.hero-intro{isolation:isolate}
+.hero-intro,.selection-box,.hero-title-wrap{max-width:100%}
+.hero-title-wrap h1{overflow-wrap:anywhere}
+.desktop-window{max-width:calc(100vw - 24px);max-height:calc(100dvh - 90px)}
+.window-body{min-height:0;overflow:auto;overscroll-behavior:contain}
+.finder-layout,.notes-app,.messages-app,.music-app{min-height:0;min-width:0}
+.finder-main,.notes-editor,.messages-right,.music-main{min-width:0;overflow-wrap:anywhere}
+.trip-journal .trip-tabs{display:flex;flex-wrap:wrap;gap:7px}
+.trip-journal .trip-tabs button{flex:0 0 auto}
+.trip-panel img,.simple-app img{max-width:100%;height:auto}
+@media(max-width:750px){
+  .desktop-window{max-width:calc(100vw - 16px);max-height:calc(100dvh - 105px)}
+  .window-body{overflow:auto}
+  .finder-layout{grid-template-columns:minmax(94px,28%) minmax(0,1fr)}
+  .finder-sidebar{min-width:0;overflow-y:auto}
+  .finder-sidebar button{white-space:normal;overflow-wrap:anywhere}
+  .finder-main{min-width:0;overflow-x:hidden}
+  .finder-main h2{overflow-wrap:anywhere;line-height:1.15}
+  .finder-info{grid-template-columns:1fr}
+  .simple-app{overflow-wrap:anywhere}
+  .app-tags{display:flex;flex-wrap:wrap}
+  .trip-journal .trip-tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}
+  .trip-journal .trip-tabs button{white-space:nowrap}
+  .hero-title-wrap h1{max-width:100%;overflow-wrap:anywhere}
+}
+@media(max-width:390px){
+  .finder-layout{grid-template-columns:90px minmax(0,1fr)}
+  .finder-sidebar button{font-size:10px;padding:9px 5px}
+  .finder-main{padding:14px 10px}
+}
