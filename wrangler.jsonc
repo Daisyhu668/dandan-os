@@ -31,6 +31,10 @@
   },
   "routes": [
     {
+      "pattern": "os.coolkiy.dpdns.org",
+      "custom_domain": true
+    },
+    {
       "pattern": "os.coolkiy.qzz.io",
       "custom_domain": true
     }
