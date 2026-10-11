@@ -40,13 +40,48 @@
     toolbox:`<div class="simple-app"><span class="eyebrow">02 / MAKING REPETITIVE WORK SMALLER</span><h2>Financial Toolbox</h2><p>一份财报要转换格式，一张表格要统一字段，一套材料要逐项检查。我的工具箱收集这些具体而琐碎的问题，也记录每次尝试怎样减少重复操作。</p><div class="app-tags"><span>PYTHON</span><span>HTML / CSS / JS</span><span>DATA CLEANING</span><span>WORKFLOWS</span></div><ul><li>表格整理：处理字段名称、顺序与格式，保留可检查的结果。</li><li>财报转换：围绕源文件与目标模板的对应关系设计处理步骤。</li><li>结果复核：对缺失项、异常值与转换差异保留人工检查入口。</li><li>结合 Codex、ChatGPT、Claude Code、Muse 与 n8n 开展工作流原型实践。</li></ul><p>AI 是协作工具，关键业务判断仍须由人审核完成。</p><p class="app-meta">PROCESS: OBSERVE → BREAK DOWN → BUILD → VERIFY</p><button class="window-button" data-open="terminal">打开 Terminal 试试 →</button></div>`,
     writing:`<div class="simple-app"><span class="eyebrow">03 / WRITING WITH PURPOSE</span><h2>Stories & People</h2><div class="app-tags"><span>派克说事</span><span>她境 SHEMAP</span><span>EDITORIAL</span></div><p><strong>「派克说事」</strong>写职场、技术与普通人的实际问题。希望每篇文章都能留下一个有用的方法、一条可核查的信息，或者一个值得重新思考的角度。</p><p><strong>「她境 SHEMAP」</strong>关注女性的处境与选择，整理风险识别、自我保护和相关知识；对专业议题保留来源与边界。</p><p>写之前先问自己：读者能带走什么？如果答案只有情绪和漂亮句子，这篇文章还需要再改。</p><p class="app-meta">NOTE TO SELF: BE USEFUL. BE SPECIFIC. BE HUMAN.</p></div>`,
     dog:`<div class="simple-app"><span class="eyebrow">HELLO, I'M THE REAL BOSS</span><div class="dog-profile"><img src="/assets/photos/gangbeng-smile.webp" alt="钢镚的肖像摄影"/><div><h2>钢镚 ♡</h2><p>钢镚是家里的吉娃娃。十二岁了，体型很小，存在感却很强。出门拍了再多的照片，回家还是要先看看它在做什么。</p><p><strong>12 岁 · 小型犬 · 家庭首席幸福官</strong></p><p>它有自己的脾气，也有一套固定的生活节奏。关于它的照片，比任何自我介绍都更能说明我的日常。</p><div class="app-tags"><span>SMALL BUT BRAVE</span><span>GOOD BOY</span><span>♡</span></div></div></div><p class="app-meta">PHOTO NOTE / THE LITTLE COMPANION</p></div>`,
-    travel:`<div class="simple-app trip-journal"><span class="eyebrow">A PERSONAL ATLAS / FIELD NOTES</span><h2>Always take the scenic road. <span class="trip-star">✳</span></h2><p class="trip-lead">登顶一座山峰，到达一片湖泊，走过一段路。目的地之外，每一天的见闻也值得留下。</p><div class="trip-tabs" role="tablist" aria-label="旅行故事分类"><button class="selected" data-trip="mountains" role="tab" aria-selected="true">01 山脊</button><button data-trip="hut" role="tab" aria-selected="false">02 山屋</button><button data-trip="cities" role="tab" aria-selected="false">03 城市</button><button data-trip="rainforest" role="tab" aria-selected="false">04 姆鲁与雨林</button><button data-trip="light" role="tab" aria-selected="false">05 光影</button></div>
-    <div class="trip-panel selected" data-trip-panel="mountains"><div class="app-hero"><img src="/assets/photos/cadini-ridge.webp" alt="多洛米蒂刀锋群峰与徒步者" /></div><div class="trip-numeral">01 / EARTH & TIME</div><h3>两亿年前，这里曾是海</h3><p>2026 年秋天，我沿着 Seceda 的刀锋山脊漫步，也看过 Cadini 尖锐的群峰和 Tre Cime 沉默的石墙。每行数十步，群峰便换一种形状。两亿多年前这里曾经是海，时间缓慢地把岩石雕成今天的样子。</p><div class="app-tags"><span>SECEDA</span><span>CADINI</span><span>TRE CIME</span></div></div>
-    <div class="trip-panel" data-trip-panel="hut"><div class="app-hero"><img src="/assets/photos/moon-dolomites.webp" alt="多洛米蒂月色与玫瑰色天空" /></div><div class="trip-numeral">02 / NIGHT ON THE MOUNTAIN</div><h3>Locatelli，日落之后</h3><p>沿着山路走向 Locatelli 山屋，Tre Cime 在背后变换角度。最想留住的是高海拔山屋的傍晚与清晨：看光线一点一点爬上岩壁，听风和脚步替时间计数。</p><div class="app-tags"><span>RIFUGIO LOCATELLI</span><span>SUNRISE</span><span>SLOW TRAVEL</span></div></div>
-    <div class="trip-panel" data-trip-panel="cities"><div class="trip-numeral">03 / OLD STONES & STREETS</div><h3>维罗纳，留一下午给老城</h3><p>离开多洛米蒂后，我去了维罗纳。沿河走到圣泽诺教堂，再看斯卡利杰家族墓地和罗马剧场。城市的历史藏在一块块石头里，步行比赶景点更适合认识它。</p><div class="app-tags"><span>CORTINA</span><span>VERONA</span><span>MILANO</span></div></div>
-    <div class="trip-panel" data-trip-panel="rainforest"><div class="trip-numeral">04 / BORNEO · EAST MALAYSIA</div><h3>姆鲁与婆罗洲的雨林</h3><p>如果你想知道一亿年前的生命大概是什么模样？在东马的姆鲁与婆罗洲雨林里，潮湿的空气、层叠的树冠与岩石，让这个问题有了具体的形状。</p><div class="app-tags"><span>MULU</span><span>BORNEO</span><span>RAINFOREST</span></div></div>
-    <div class="trip-panel" data-trip-panel="light"><div class="app-hero"><img src="/assets/photos/sagrada-portrait.webp" alt="圣家堂彩窗里洒下的光" /></div><div class="trip-numeral">05 / BARCELONA · SAGRADA FAMÍLIA</div><h3>巴塞罗那，把时间交给光</h3><p>在巴塞罗那，圣家堂最值得慢慢看的是光。彩色玻璃把阳光投在柱子与地面上，走到不同位置，眼前的颜色也会改变。我想记住这种亲眼看见建筑随时间变化的感觉。</p><div class="app-tags"><span>SAGRADA FAMÍLIA</span><span>GAUDÍ</span><span>LIGHT</span></div></div>
-    <p class="trip-note">✳ 山川、光线与脚步之间的私人记录。影像经过艺术调色，故事留下当时的时间与感受。</p><div class="travel-archive"><h3>旅行索引 · Places &amp; Notes</h3><p>从 Notion 里整理出来的旅行目录。先记录地点与线索，照片和故事会逐篇补齐。</p><div class="travel-archive-grid"><article><strong>意大利 × 西班牙</strong><small>罗马 / 巴塞罗那 / 瓦伦西亚</small><p>第一次意大利与西班牙之行：从罗马的旧城，到巴塞罗那的建筑，再乘火车去瓦伦西亚。</p></article><article><strong>卡瓦格博</strong><small>云南 / 飞来寺 / 南主牧场</small><p>在云南沿山路向前。行程笔记里有牧场、山脊线，也有出发前认真准备的每件小事。</p></article><article><strong>姆鲁与婆罗洲</strong><small>马来西亚 / 雨林</small><p>「如果想知道一亿年前的生命是什么模样？」这是我写在马来西亚旅行页开头的问题。</p></article><article><strong>多洛米蒂 · 2026</strong><small>Seceda / Cadini / Tre Cime</small><p>从山脊到山屋，沿途还有草甸与湖泊；下山后，继续去维罗纳和米兰。</p></article></div></div><button class="window-button" data-open="photos">OPEN THE PHOTO ROLL →</button></div>`,
+    travel:`<div class="simple-app trip-journal trip-atlas">
+      <span class="eyebrow">TRAVEL / PERSONAL ATLAS</span>
+      <h2>Always take the scenic road. <span class="trip-star">✳</span></h2>
+      <p class="trip-lead">登顶一座山峰，到达一片湖泊，走过一定的距离。旅行的记忆，往往留在沿途那些没有预先安排的时刻。</p>
+      <div class="atlas-intro"><span>PLACES I'VE BEEN</span><strong>四段旅行，各有自己的章节。</strong><p>从城市到高山，从石头建筑到热带雨林。选一个地方，打开它的旅行笔记。</p></div>
+      <div class="trip-tabs atlas-tabs" role="tablist" aria-label="按旅行目的地浏览">
+        <button class="selected" data-trip="dolomites" role="tab" aria-selected="true">01 多洛米蒂</button>
+        <button data-trip="europe" role="tab" aria-selected="false">02 意大利 · 西班牙</button>
+        <button data-trip="mulu" role="tab" aria-selected="false">03 马来西亚 · 姆鲁</button>
+        <button data-trip="kawagarbo" role="tab" aria-selected="false">04 卡瓦格博</button>
+      </div>
+      <div class="trip-panel selected atlas-panel" data-trip-panel="dolomites" role="tabpanel">
+        <div class="atlas-cover"><img src="/assets/photos/cadini-ridge.webp" alt="多洛米蒂的山脊和群峰"><span>ITALY / SEPTEMBER 2026</span></div>
+        <div class="trip-numeral">01 / THE DOLOMITES · 2026</div><h3>沿着山脊，走进多洛米蒂</h3>
+        <p>从 Ortisei 出发，走上 Seceda 与 Col Raiser；之后来到 Cortina，看 Cadini、Tre Cime，也在山屋和山路之间留出时间。那些山峰在不同光线下不断改变颜色，照片记录了其中很短的一瞬。</p>
+        <div class="atlas-chapters"><div><small>THE RIDGES</small><strong>Seceda · Col Raiser</strong><p>从草甸走向山脊，视线越过一道道起伏的山线。</p></div><div><small>THE PEAKS</small><strong>Cadini · Tre Cime</strong><p>岩壁、碎石路和山间的光影，是这一段最想留下的画面。</p></div><div><small>AFTER THE MOUNTAINS</small><strong>Verona · Milano</strong><p>离开山里，继续沿河走过维罗纳的老城，再去米兰。</p></div></div>
+        <div class="app-tags"><span>SECEDA</span><span>CADINI</span><span>TRE CIME</span><span>VERONA</span></div>
+      </div>
+      <div class="trip-panel atlas-panel" data-trip-panel="europe" role="tabpanel">
+        <div class="atlas-cover"><img src="/assets/photos/sagrada-portrait.webp" alt="巴塞罗那圣家堂的彩色光影"><span>ITALY → SPAIN / AN EARLIER JOURNEY</span></div>
+        <div class="trip-numeral">02 / ITALY & SPAIN</div><h3>从罗马，到地中海另一边</h3>
+        <p>这是一段独立的意大利与西班牙旅行，和 2026 年的多洛米蒂行程分开记录。路线从罗马开始，接着去巴塞罗那，最后到瓦伦西亚。一个地方看古老的街道，一个地方看高迪的建筑，再到海边走走。</p>
+        <div class="atlas-chapters"><div><small>FIRST STOP</small><strong>Roma · 罗马</strong><p>古城、街巷和一路收集的建筑细节。</p></div><div><small>SECOND STOP</small><strong>Barcelona · 巴塞罗那</strong><p>圣家堂的彩窗、高迪的线条，以及随时间移动的阳光。</p></div><div><small>THIRD STOP</small><strong>València · 瓦伦西亚</strong><p>从巴塞罗那搭火车向南，给地中海边的城市留几天时间。</p></div></div>
+        <div class="app-tags"><span>ROME</span><span>BARCELONA</span><span>VALÈNCIA</span></div>
+      </div>
+      <div class="trip-panel atlas-panel" data-trip-panel="mulu" role="tabpanel">
+        <div class="atlas-cover atlas-cover-type forest"><span>MALAYSIA / BORNEO / MULU</span><strong>RAINFOREST<br>&amp; TIME</strong><small>雨林章节 · 图片整理中</small></div>
+        <div class="trip-numeral">03 / MALAYSIA · MULU</div><h3>如果想知道一亿年前的生命是什么模样？</h3>
+        <p>这是我写在马来西亚旅行笔记开头的问题。姆鲁和婆罗洲的雨林，与欧洲的城市和阿尔卑斯山完全不同：树冠、潮湿的空气、岩石和植物，组成了另一种观察世界的方式。</p>
+        <div class="atlas-chapters"><div><small>THE PLACE</small><strong>Gunung Mulu · 姆鲁</strong><p>把目光从远处的风景转向森林内部。</p></div><div><small>THE QUESTION</small><strong>一亿年前的生命</strong><p>关于时间、雨林与自然的好奇，成为这一篇旅行笔记的起点。</p></div></div>
+        <div class="app-tags"><span>MULU</span><span>BORNEO</span><span>RAINFOREST</span></div>
+      </div>
+      <div class="trip-panel atlas-panel" data-trip-panel="kawagarbo" role="tabpanel">
+        <div class="atlas-cover atlas-cover-type highland"><span>YUNNAN / KAWAGARBO</span><strong>THE<br>LONG WALK</strong><small>徒步章节 · 图片整理中</small></div>
+        <div class="trip-numeral">04 / KAWAGARBO · YUNNAN</div><h3>沿着山路，靠近卡瓦格博</h3>
+        <p>从丽江、香格里拉一路向飞来寺，旅行笔记里还写着南主牧场、山脊线和崩格顶。比起一个终点，我更想记住每天脚下不同的路，以及走进高山环境时对距离和时间的重新认识。</p>
+        <div class="atlas-chapters"><div><small>APPROACH</small><strong>丽江 · 香格里拉 · 飞来寺</strong><p>从城市向高山过渡，逐渐接近徒步区域。</p></div><div><small>ON THE TRAIL</small><strong>南主牧场 · 山脊线</strong><p>牧场、营地与山路，构成旅行笔记里的主要线索。</p></div></div>
+        <div class="app-tags"><span>KAWAGARBO</span><span>YUNNAN</span><span>HIKING</span></div>
+      </div>
+      <p class="trip-note">✳ 公开版旅行档案只整理地点、观察与影像；私人日程、订单和费用留在 Notion。</p>
+      <button class="window-button" data-open="photos">OPEN THE PHOTO ROLL →</button>
+    </div>`,
     coffee:`<div class="simple-app"><span class="eyebrow">A SMALL DAILY RITUAL</span><h2>Slow coffee ☕</h2><div style="display:grid;grid-template-columns:130px 1fr;gap:25px;align-items:center"><div style="background:#f3dabe;font-size:80px;min-height:140px;display:grid;place-items:center;border-radius:10px">☕</div><div><p>旅行时我常会留一点时间给咖啡店：看看豆单，点一杯手冲，聊聊产地、处理法和烘焙方式。</p><p>平时也自己冲。磨豆、注水、等它慢慢滴完，是一天里少数不需要赶进度的时刻。</p></div></div><div class="app-tags"><span>POUR OVER</span><span>LIGHT / MEDIUM ROAST</span><span>COFFEE SHOPS</span></div><p class="app-meta">THE BEST MOMENTS ARE SOMETIMES THE QUIET ONES.</p></div>`
   };
   function finderHTML(){return `<div class="finder-layout"><aside class="finder-sidebar"><small>FAVORITES</small><button data-folder="intro" class="selected">▣　About me</button><button data-folder="career">▤　Experience</button><button data-folder="skills">⌘　Skills</button><button data-folder="education">◈　Education</button><button data-folder="projects">✳　Projects</button><p class="sidebar-bottom">DANDAN/OS · PUBLIC EDITION</p></aside><div class="finder-main" id="finder-main"></div></div>`;}
