@@ -146,7 +146,7 @@
     const note=e.target.closest('[data-note]');if(note){const root=note.closest('.desktop-window');if(root)setNote(note.dataset.note,root);return;}
     const imageButton=e.target.closest('[data-image]');if(imageButton){openImage(Number(imageButton.dataset.image));return;}
     const musicButton=e.target.closest('[data-music]');if(musicButton){const action=musicButton.dataset.music;if(action==='toggle'){musicPlaying?stopMusic():startMusic()}else announce('This ambient mix is a single original looping composition.');return;}
-    const opener=e.target.closest('[data-open]');if(opener){openApp(opener.dataset.open);return;}
+    const opener=e.target.closest('[data-open]');if(opener){openApp(opener.dataset.open);if(opener.dataset.open==='travel'&&opener.dataset.tripTarget){const target=opener.dataset.tripTarget;const root=$('.desktop-window[data-app="travel"]');if(root){$('[data-trip]',root).forEach(b=>{const active=b.dataset.trip===target;b.classList.toggle('selected',active);b.setAttribute('aria-selected',String(active));});$('[data-trip-panel]',root).forEach(p=>p.classList.toggle('selected',p.dataset.tripPanel===target));}}return;}
     const scroller=e.target.closest('[data-scroll]');if(scroller){document.getElementById(scroller.dataset.scroll)?.scrollIntoView({behavior:'smooth'});return;}
     if(e.target.closest('.lightbox-close')||e.target.id==='lightbox')$('#lightbox').hidden=true;
   });
