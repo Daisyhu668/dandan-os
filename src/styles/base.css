@@ -92,3 +92,18 @@
   .finder-sidebar button{font-size:10px;padding:9px 5px}
   .finder-main{padding:14px 10px}
 }
+
+
+/* Personal travel archive: compact editorial cards, independent from photo gallery. */
+.travel-archive{margin:28px 0 20px;padding-top:20px;border-top:1px solid rgba(95,82,69,.18)}
+.travel-archive>h3{font-size:21px;letter-spacing:-.025em;margin:0 0 6px}
+.travel-archive>p{font-size:12px;line-height:1.7;color:#777;margin:0 0 16px}
+.travel-archive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.travel-archive-grid article{min-width:0;padding:17px;border:1px solid #e8e2da;background:#faf7f1;border-radius:12px}
+.travel-archive-grid article:nth-child(2){background:#f4f1fa}
+.travel-archive-grid article:nth-child(3){background:#edf3ec}
+.travel-archive-grid article:nth-child(4){background:#f1f5f8}
+.travel-archive-grid strong{display:block;font-size:15px;letter-spacing:-.025em}
+.travel-archive-grid small{display:block;margin:7px 0 9px;font-size:10px;letter-spacing:.05em;color:#827b76}
+.travel-archive-grid article p{margin:0;font-size:12px;line-height:1.7;color:#5c5853}
+@media(max-width:540px){.travel-archive-grid{grid-template-columns:1fr}.travel-archive-grid article{padding:14px}}
