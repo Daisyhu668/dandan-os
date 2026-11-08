@@ -1,0 +1,135 @@
+name: node-monitor
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+    inputs:
+      report:
+        description: "立即发一份状态报告"
+        type: boolean
+        default: true
+permissions:
+  contents: write
+concurrency:
+  group: node-monitor
+  cancel-in-progress: false
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: sing-box
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release download v1.12.12 -R SagerNet/sing-box -p 'sing-box-1.12.12-linux-amd64.tar.gz' -O sb.tgz
+          tar xzf sb.tgz
+          mv sing-box-1.12.12-linux-amd64/sing-box .
+          chmod +x sing-box
+
+      - name: install sshpass
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
+
+      - name: fetch HU_LINKS
+        id: hu
+        continue-on-error: true
+        env:
+          SSHPASS: ${{ secrets.HU_PASS }}
+          HU_HOST: ${{ secrets.HU_HOST }}
+          HU_USER: ${{ secrets.HU_USER }}
+          HU_PORT: ${{ secrets.HU_PORT }}
+        run: |
+          set -euo pipefail
+          set +x
+          umask 077
+          port="${HU_PORT:-22}"
+          : > hu_links.txt
+          sshpass -e ssh \
+            -o StrictHostKeyChecking=accept-new \
+            -o LogLevel=ERROR \
+            -o ConnectTimeout=20 \
+            -p "$port" \
+            "${HU_USER}@${HU_HOST}" \
+            /bin/bash -s > hu_links.txt <<'EOF'
+          set -eu
+          found=0
+          for f in "$HOME"/domains/*/logs/list.txt; do
+            if [ -s "$f" ]; then
+              cat "$f"
+              found=1
+              break
+            fi
+          done
+          if [ "$found" -eq 0 ]; then
+            for j in "$HOME"/domains/*/logs/jh.txt; do
+              if [ -s "$j" ]; then
+                cat "$j"
+                break
+              fi
+            done
+          fi
+          EOF
+          chmod 600 hu_links.txt
+          echo "fetched $(wc -c < hu_links.txt) bytes"
+
+      - name: check
+        id: check
+        env:
+          NODE_HOST: ${{ secrets.NODE_HOST }}
+          NODE_UUID: ${{ secrets.NODE_UUID }}
+          NODE_PATH: ${{ secrets.NODE_PATH }}
+          SUB_URL: ${{ secrets.SUB_URL }}
+          CF_SUB: ${{ secrets.CF_SUB }}
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT }}
+          HU_LINKS_FILE: hu_links.txt
+          HU_FETCH_FAILED: ${{ steps.hu.outcome != 'success' }}
+          FORCE_REPORT: ${{ github.event_name == 'workflow_dispatch' && inputs.report }}
+        run: python3 check.py
+
+      - name: upload status
+        if: steps.check.outcome == 'success'
+        env:
+          SSHPASS: ${{ secrets.HU_PASS }}
+          HU_HOST: ${{ secrets.HU_HOST }}
+          HU_USER: ${{ secrets.HU_USER }}
+          HU_PORT: ${{ secrets.HU_PORT }}
+        run: |
+          set -euo pipefail
+          set +x
+          port="${HU_PORT:-22}"
+          sshpass -e scp \
+            -o StrictHostKeyChecking=accept-new \
+            -o LogLevel=ERROR \
+            -o ConnectTimeout=20 \
+            -P "$port" \
+            status.json "${HU_USER}@${HU_HOST}:.node_status.json"
+
+      - name: save state
+        if: always() && steps.check.outcome == 'success'
+        run: |
+          set -euo pipefail
+          git config user.name monitor
+          git config user.email monitor@users.noreply.github.com
+          git add state.json
+          if git diff --cached --quiet; then
+            echo "state unchanged"
+            exit 0
+          fi
+          git commit -qm "state"
+          branch="${GITHUB_REF_NAME}"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase origin "$branch" && git push origin "HEAD:${branch}"; then
+              echo "state pushed"
+              exit 0
+            fi
+            git rebase --abort >/dev/null 2>&1 || true
+            sleep $((i * 2))
+          done
+          echo "state push failed"
+          exit 1

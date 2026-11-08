@@ -1,0 +1,94 @@
+name: deploy-host
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: syntax
+        run: |
+          set -euo pipefail
+          python3 -m py_compile host/tg_bot.py host/setup_bot.py
+          bash -n host/tg_actions.sh
+
+      - name: install sshpass
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq sshpass
+
+      - name: backup, install, selftest
+        env:
+          SSHPASS: ${{ secrets.HU_PASS }}
+          HU_HOST: ${{ secrets.HU_HOST }}
+          HU_USER: ${{ secrets.HU_USER }}
+          HU_PORT: ${{ secrets.HU_PORT }}
+        run: |
+          set -euo pipefail
+          set +x
+          port="${HU_PORT:-22}"
+          ssh_opts=(
+            -o StrictHostKeyChecking=accept-new
+            -o LogLevel=ERROR
+            -o ConnectTimeout=20
+          )
+          sshpass -e ssh "${ssh_opts[@]}" -p "$port" "${HU_USER}@${HU_HOST}" /bin/bash -s <<'EOF'
+          set -eu
+          umask 077
+          ts=$(date +%Y%m%d%H%M%S)
+          dest="$HOME/backups/tgbot-$ts"
+          mkdir -p "$dest"
+          if [ -f "$HOME/tg_bot.py" ]; then cp -a "$HOME/tg_bot.py" "$dest/"; fi
+          if [ -f "$HOME/tg_push.sh" ]; then cp -a "$HOME/tg_push.sh" "$dest/"; fi
+          printf '%s\n' "$dest" > "$HOME/.tg_deploy_last"
+          echo "backup $dest"
+          EOF
+          sshpass -e scp "${ssh_opts[@]}" -P "$port" \
+            host/tg_bot.py host/tg_actions.sh host/setup_bot.py \
+            "${HU_USER}@${HU_HOST}:"
+          sshpass -e ssh "${ssh_opts[@]}" -p "$port" "${HU_USER}@${HU_HOST}" /bin/bash -s <<'EOF'
+          set -eu
+          dest=$(cat "$HOME/.tg_deploy_last")
+          cp -a "$HOME/tg_actions.sh" "$HOME/tg_push.sh"
+          chmod 700 "$HOME/tg_bot.py" "$HOME/tg_actions.sh" "$HOME/tg_push.sh" "$HOME/setup_bot.py" || true
+          restore() {
+            if [ -f "$dest/tg_bot.py" ]; then cp -a "$dest/tg_bot.py" "$HOME/tg_bot.py"; else rm -f "$HOME/tg_bot.py"; fi
+            if [ -f "$dest/tg_push.sh" ]; then cp -a "$dest/tg_push.sh" "$HOME/tg_push.sh"; else rm -f "$HOME/tg_push.sh"; fi
+            echo "restored $dest"
+          }
+          py=/usr/local/bin/python3
+          if [ ! -x "$py" ]; then
+            echo "missing /usr/local/bin/python3"
+            restore
+            exit 1
+          fi
+          if ! "$py" -m py_compile "$HOME/tg_bot.py" "$HOME/setup_bot.py"; then
+            restore
+            exit 1
+          fi
+          if ! /bin/bash -n "$HOME/tg_actions.sh"; then
+            restore
+            exit 1
+          fi
+          if ! "$py" "$HOME/tg_bot.py" --selftest > "$dest/selftest.out" 2>"$dest/selftest.err"; then
+            echo "selftest failed"
+            if [ -s "$dest/selftest.err" ]; then
+              sed -E 's/[0-9A-Fa-f-]{20,}/<redacted>/g' "$dest/selftest.err" | tail -n 30
+            fi
+            restore
+            exit 1
+          fi
+          if ! grep -q SELFTEST_OK "$dest/selftest.out"; then
+            echo "selftest missing marker"
+            restore
+            exit 1
+          fi
+          echo "selftest passed"
+          if ! "$py" "$HOME/setup_bot.py"; then
+            echo "setMyCommands failed; new files kept because selftest passed"
+            exit 1
+          fi
+          echo "deploy ok"
+          EOF
