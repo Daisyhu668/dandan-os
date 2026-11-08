@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+hu_links.txt
+status.json
+sing-box
+sb.tgz
+*.tmp
